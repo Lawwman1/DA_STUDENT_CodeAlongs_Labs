@@ -1,8 +1,9 @@
-# Data Analytics Code-Alongs & Labs
+# Data Analytics Code-Alongs & Data Challenges
 
-This is your working repo for code-alongs (from lecture) and labs
-(in-class practice) — starter files you actually type into, not a reference
-you just read.
+This is your working repo for **code-alongs** (the code you type with your
+instructor during each LiveLab) and **Data Challenges** (the hands-on
+practice block after it). These are starter files you actually type into,
+not a reference you just read.
 
 ## Getting Set Up
 
