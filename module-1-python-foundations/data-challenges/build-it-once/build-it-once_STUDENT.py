@@ -14,7 +14,7 @@ HOW TO RUN
     The first line, #!/usr/bin/env python3 (the "shebang"), is what
     makes ./ work. python3 <file> ignores it as a comment.
 
-THE DATA      data/rec_center_signups.txt
+THE DATA      rec_center_signups.txt
 
 ANSWER EVERYTHING IN THIS FILE
     - Code goes under each step's banner.
@@ -37,23 +37,23 @@ SUBMIT
 """
 
 ############################################################################
-#  THE DATA: open data/rec_center_signups.txt and look at it
+#  THE DATA: open rec_center_signups.txt and look at it
 #  before you write any code. The worksheet's "The Data" section
 #  shows how to load it.
 ############################################################################
 
 # 1. What does one row represent?
-# Your answer:
+# Your answer: The person, what the name is the clas they are taking, and how many sessions they are taking of it 
 #
 #
 
 # 2. Which fields hold numbers, and which hold text?
-# Your answer:
+# Your answer: sessions holds numbers, and memeber and class_name hold text (strings)
 #
 #
 
 # 3. What already looks wrong, missing or inconsistent?
-# Your answer:
+# Your answer: It is unclear whther or not sessions is referring to the number of sessions of how long each. session is
 #
 #
 
@@ -78,16 +78,20 @@ SUBMIT
 # The arithmetic is the same arithmetic a plain loop would do. What changes
 # is that the answer comes back to you instead of going to the screen.
 
-with open("data/rec_center_signups.txt") as f:
+with open("rec_center_signups.txt") as f:
     signups = [line for line in f.read().splitlines()
                if line and not line.startswith("#")]
 
 def total_sessions(records):
     # TODO: add up the sessions column across every record in `records`
     # TODO: hand the total back to whoever called this. Do not print it.
-    pass
+    total = 0
+    for record in records:
+        columns = record.split(",")
+        total += int(columns[2])
+    return total
 
-swim_only = []
+swim_only = [record for record in signups if record.split(",")[1] == "Swim"]
 # TODO: fill swim_only with just the Swim records
 
 print("every class:", total_sessions(signups))
