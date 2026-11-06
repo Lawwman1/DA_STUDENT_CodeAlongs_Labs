@@ -39,6 +39,13 @@ print('----- 1. Local Scope, Live -----')
 # to 100, returning it, then try printing total outside the
 # function and watch what happens
 
+def make_total():
+    total = 100
+    return total
+
+make_total()
+x = make_total()
+print(x)
 # DISCUSS: Now try a new function. set_x() runs and sets x = 5 inside it, but
 #          print(x) outside raises NameError. Why?
 # Your answer:
@@ -54,6 +61,13 @@ print('----- 2. Reading a Global, Live -----')
 # price_with_tax(price) that reads it without taking it as
 # a parameter
 
+tax_rate = .08
+
+def price_with_tax(price):
+    x = price + (price * tax_rate)
+    return x
+
+print(price_with_tax(5.00))
 # DISCUSS: Copy the price_with_tax function from the Reading a Global code into
 #          a new file, without the tax_rate = 0.08 line. It worked here. Why
 #          does it break there?

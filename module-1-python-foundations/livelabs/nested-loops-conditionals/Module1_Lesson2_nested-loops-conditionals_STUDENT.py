@@ -35,10 +35,13 @@ print('----- 1. Nested Loop, Live -----')
 # TODO: write a nested loop that prints every (row, col)
 # pair for row in range(2) and col in range(3)
 
+for row in range (2):
+    for col in range(3):
+        print(row,col)
 # PREDICT before you run: Change the Nested Loop code to range(3) on the
 #                         outside and range(2) on the inside. How many lines
 #                         print?
-# Your answer:
+# Your answer: 6
 #
 #
 #
@@ -57,6 +60,14 @@ print('----- 2. Nested Conditional, Live -----')
 # check confirming quantity is greater than 0
 operation = "ADD"
 quantity = -5
+
+if operation == "ADD":
+        if quantity >0:
+                print("valid add")
+        else:
+                print("Invalid quantity")
+else:
+      print("REMOVE")
 
 # DISCUSS: Suppose the inner quantity check in the Nested Conditional code
 #          never seems to run. What should you trace first? Try it: set
