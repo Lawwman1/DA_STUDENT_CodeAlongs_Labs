@@ -118,12 +118,17 @@ print("swim only:  ", total_sessions(swim_only))
 # other only puts something on the screen.
 
 def count_long_bookings(records, minimum):
-    # TODO: count the records whose sessions number is `minimum` or more
-    # TODO: return the count
+    count = 0
+    for record in records:
+        sessions = int(record.split(",")[2])
+        if sessions >= minimum:
+            count += 1
+    return count
     pass
 
 def show_long_bookings(records, minimum):
-    # TODO: print a sentence with the same count in it. Only print.
+    count = count_long_bookings(records, minimum)
+    print(f"There are {count} bookings with {minimum} or more sessions.")
     pass
 
 print("returned:", count_long_bookings(signups, 4))
