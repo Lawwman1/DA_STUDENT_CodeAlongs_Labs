@@ -88,40 +88,40 @@ with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
               if line and not line.startswith("#")]
 
-long_shifts = 0
-for shift in shifts:
-    hours = int(shift.split(",")[2])
-    # TODO: write the test for a long shift. The coordinator counts a
-    #       shift of 4 hours or more.
-    if hours >=4:
-        long_shifts +=1
+# long_shifts = 0
+# for shift in shifts:
+#     hours = int(shift.split(",")[2])
+#     # TODO: write the test for a long shift. The coordinator counts a
+#     #       shift of 4 hours or more.
+#     if hours >=4:
+#         long_shifts +=1
 
-print("shifts of 4+ hours:", long_shifts)
+# print("shifts of 4+ hours:", long_shifts)
 
-# Your answer: 5
-#
-#
+# # Your answer: 5
+# #
+# #
 
-# ===== Step 2: Total the Week's Hours, Printing the Running Total Each Pass =====
-# You already wrote a loop that counts. This one adds up instead, and you
-# watch the variable move as it goes.
-#
-# 1. Predict two numbers in a comment, both worked out by hand off the file.
-#    The week's total hours: add the third field down all 12 rows. The
-#    number of lines that will print: the loop prints once per row it
-#    visits, so count the rows.
-# 2. Add this shift's hours onto the running total in the first TODO.
-#    Everything that came out of shift.split(",") is a string, so something
-#    has to convert it.
-# 3. Print one line per pass in the second TODO: the day, the volunteer, and
-#    the total so far.
-# 4. Run it, and check the line count against your prediction first, then
-#    the final total.
-#
-# That printed line per pass is a tracing tool, not decoration.
+# # ===== Step 2: Total the Week's Hours, Printing the Running Total Each Pass =====
+# # You already wrote a loop that counts. This one adds up instead, and you
+# # watch the variable move as it goes.
+# #
+# # 1. Predict two numbers in a comment, both worked out by hand off the file.
+# #    The week's total hours: add the third field down all 12 rows. The
+# #    number of lines that will print: the loop prints once per row it
+# #    visits, so count the rows.
+# # 2. Add this shift's hours onto the running total in the first TODO.
+# #    Everything that came out of shift.split(",") is a string, so something
+# #    has to convert it.
+# # 3. Print one line per pass in the second TODO: the day, the volunteer, and
+# #    the total so far.
+# # 4. Run it, and check the line count against your prediction first, then
+# #    the final total.
+# #
+# # That printed line per pass is a tracing tool, not decoration.
 
 total = 0
-for shift in shifts:
+for shift in shifts[1:]:
     volunteer, day, hours = shift.split(",")
     # TODO: add this shift's hours onto the running total. Mind the
     #       type: everything that came out of that split is a string.
