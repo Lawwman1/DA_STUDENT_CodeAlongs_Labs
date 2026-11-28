@@ -246,4 +246,3 @@ print("the row it never saw:", shifts[-1])
 # Be ready to answer "why did you do it that way?"
 
 # Your notes for the share out:
-#
