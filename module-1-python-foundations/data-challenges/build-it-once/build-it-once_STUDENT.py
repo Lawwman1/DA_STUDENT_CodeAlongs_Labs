@@ -129,6 +129,7 @@ def count_long_bookings(records, minimum):
 def show_long_bookings(records, minimum):
     count = count_long_bookings(records, minimum)
     print(f"There are {count} bookings with {minimum} or more sessions.")
+    return count
     pass
 
 print("returned:", count_long_bookings(signups, 4))
@@ -137,7 +138,7 @@ print("returned:", count_long_bookings(signups, 2))
 handed_back = show_long_bookings(signups, 4)
 print("what show_long_bookings handed back:", handed_back)
 
-# Your answer:
+# Your answer: Handed back holds the count of how many long bookings there are
 #
 #
 
@@ -189,14 +190,21 @@ sessions_cutoff = 4
 def count_reaching_outside(records):
     # TODO: same count as count_long_bookings, but take NO minimum
     # parameter. Read sessions_cutoff from outside the function instead.
+    count = 0
+    for record in records:
+        sessions = int(record.split(",")[2])
+        if sessions >= sessions_cutoff:
+            count += 1
+    return count
     pass
 
 print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
-
+print (count_long_bookings(signups,4))
 sessions_cutoff = 2
 
 # TODO: call count_reaching_outside(signups) again, unchanged, and print it
 # TODO: print count_long_bookings(signups, 4) underneath for comparison
+
 
 # ===== Step 4: Pass the Last Member In and Out, Then Trigger an UnboundLocalError =====
 # The coordinator wants each sign-up printed next to the one before it. The
@@ -226,14 +234,18 @@ sessions_cutoff = 2
 
 def log_signup(record, previous_member):
     # TODO: pull the member name out of `record`
+    member = record.split(",")[0]
     # TODO: print the previous member and this one on one line
+    print("previous member:", previous_member, "| this member:", member)
     # TODO: return this member's name
+    return member
     pass
 
 last_member = "nobody yet"
 # TODO: call log_signup on signups[0], then on signups[1], storing
 # what it returns back into last_member each time
-
+last_member = log_signup(signups[0], last_member)
+last_member = log_signup(signups[1], last_member)
 last_seen = "nobody yet"
 
 def log_signup_broken(record):
@@ -244,7 +256,7 @@ def log_signup_broken(record):
 
 log_signup_broken(signups[2])
 
-# Your answer:
+# Your answer: The file will raise an error because the variable last_seen is not initialized before it is called
 #
 #
 
